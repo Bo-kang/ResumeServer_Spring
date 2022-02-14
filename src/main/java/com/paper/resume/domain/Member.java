@@ -23,12 +23,12 @@ public class Member {
     private String password;
     private String email;
 
-    @Column(updatable = false, columnDefinition = "date default sysdate")
+    @Column(insertable = false, updatable = false, columnDefinition = "date default sysdate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
 
     private String role;
 
-    @ColumnDefault("true")
+    @Column(insertable = false, columnDefinition = "bool default true")
     private boolean enable;
 }

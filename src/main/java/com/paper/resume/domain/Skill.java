@@ -20,6 +20,6 @@ public class Skill {
     private String skillName;
 
     @OneToMany(mappedBy = "skill")
-    private List<SkillStack> resume = new ArrayList<SkillStack>();
+    private List<SkillStack> skillStack = new ArrayList<SkillStack>();
 
 }
