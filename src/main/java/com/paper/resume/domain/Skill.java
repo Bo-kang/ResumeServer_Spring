@@ -3,9 +3,11 @@ package com.paper.resume.domain;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Getter
 @Setter
@@ -17,9 +19,7 @@ public class Skill {
 
     private String skillName;
 
-
-    @ManyToOne
-    @JoinColumn(name = "skill_id")
-    private Resume resume;
+    @OneToMany(mappedBy = "skill")
+    private List<SkillStack> resume = new ArrayList<SkillStack>();
 
 }

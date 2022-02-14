@@ -6,6 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,6 +20,12 @@ public class Occupation {
     @JoinColumn(name = "PARENT_ID")
     @ManyToOne
     private Occupation occupation;
+
+    @OneToMany(mappedBy = "occupation", fetch = FetchType.EAGER)
+    private List<Occupation> OccupationList = new ArrayList<Occupation>();
+
+    @OneToMany(mappedBy = "occupation")
+    private List<Job> job = new ArrayList<Job>();
 
     private String name;
 

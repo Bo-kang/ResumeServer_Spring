@@ -5,12 +5,13 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
-@Entity
 @ToString
 @Getter
 @Setter
+@Entity
 public class Resume {
     @Id @GeneratedValue
     private Integer id;
@@ -19,9 +20,9 @@ public class Resume {
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
-    @OneToMany(mappedBy = "skill",  fetch = FetchType.EAGER)
-    private List<Skill> usedSkill;
+    @OneToMany(mappedBy = "resume")
+    private List<SkillStack> usedSkill = new ArrayList<SkillStack>();
 
-    @OneToMany(mappedBy = "occupation", fetch = FetchType.EAGER)
-    private List<Occupation> findingPosition;
+    @OneToMany(mappedBy = "resume")
+    private List<Job> jobList = new ArrayList<Job>();
 }
