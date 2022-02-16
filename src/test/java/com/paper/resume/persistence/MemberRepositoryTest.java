@@ -23,9 +23,7 @@ public class MemberRepositoryTest {
         member.setPassword("test1");
         member.setId("test1");
         member.setRole("test");
-
         memberRepo.save(member);
-
         Member findMember = memberRepo.findById("test1");
         assertEquals(findMember.getId(),member.getId());
     }

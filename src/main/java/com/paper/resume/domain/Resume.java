@@ -17,7 +17,7 @@ public class Resume {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "MEMBER_ID")
+    @JoinColumn(name = "MEMBER_SEQ")
     private Member member;
 
     @OneToMany(mappedBy = "resume")
