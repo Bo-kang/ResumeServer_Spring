@@ -14,12 +14,17 @@ import java.util.List;
 @ToString
 @Entity
 public class Skill {
+
+    public Skill(){
+        skillName = "";
+    }
+
     @Id @GeneratedValue
     private Integer skillId;
 
     private String skillName;
 
-    @OneToMany(mappedBy = "skill")
-    private List<SkillStack> skillStack = new ArrayList<SkillStack>();
+    @OneToMany(mappedBy = "skill", fetch = FetchType.EAGER)
+    private List<SkillStack> skillStack = new ArrayList<>();
 
 }

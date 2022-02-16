@@ -11,7 +11,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString(exclude = { "job", "occupation" })
+@ToString(exclude = { "job", "parentOccupation" })
 @Entity
 public class Occupation {
     @Id @GeneratedValue
@@ -19,13 +19,13 @@ public class Occupation {
 
     @JoinColumn(name = "PARENT_ID")
     @ManyToOne
-    private Occupation occupation;
+    private Occupation parentOccupation;
 
-    @OneToMany(mappedBy = "occupation", fetch = FetchType.EAGER)
-    private List<Occupation> occupationList = new ArrayList<Occupation>();
+    @OneToMany(mappedBy = "parentOccupation", fetch = FetchType.EAGER)
+    private List<Occupation> occupationList = new ArrayList<>();
 
     @OneToMany(mappedBy = "occupation")
-    private List<Job> job = new ArrayList<Job>();
+    private List<Job> job = new ArrayList<>();
 
     @Column(unique = true)
     private String name;
