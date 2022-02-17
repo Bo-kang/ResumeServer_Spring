@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-@ToString
+@ToString(exclude = {"resume"})
 @Entity
 public class Job {
     @Id @GeneratedValue

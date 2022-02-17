@@ -10,6 +10,7 @@ import com.paper.resume.persistence.SkillStackRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -34,12 +35,14 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     @Override
-    public List<Resume> GetResumeList() {
-        return null;
+    public ArrayList<Resume> GetResumeList() {
+
+        return (ArrayList<Resume>)resumeRepo.findAll();
     }
 
     @Override
     public Resume GetResume(Resume resume) {
+
         return resumeRepo.findById(resume.getId()).get();
     }
 }

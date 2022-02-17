@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@ToString
+@ToString(exclude = {"usedSkill", "jobList"})
 @Getter
 @Setter
 @Entity
