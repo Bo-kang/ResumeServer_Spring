@@ -1,9 +1,6 @@
 package com.paper.resume.service;
 
-import com.paper.resume.domain.Job;
-import com.paper.resume.domain.Member;
-import com.paper.resume.domain.Resume;
-import com.paper.resume.domain.SkillStack;
+import com.paper.resume.domain.*;
 import com.paper.resume.persistence.MemberRepository;
 import com.paper.resume.persistence.OccupationRepository;
 import com.paper.resume.persistence.ResumeRepository;
@@ -61,16 +58,11 @@ public class ResumeServiceTest {
     @Test
     @Transactional
     public void GetResumeListTest1(){
-        ArrayList<Resume> resumeList = resumeService.GetResumeList();
-        System.out.println(resumeList.size());
+        ArrayList<ResumeResponseDTO> resList = resumeService.GetResumeList();
 
-        for(Resume iter : resumeList){
+        for(ResumeResponseDTO iter : resList){
             System.out.println(iter.toString());
-
-            for(Job jter :  iter.getJobList()){
-                System.out.println(jter.toString());
-            }
-
+            System.out.println(iter.getSkillMap().toString());
         }
     }
 }

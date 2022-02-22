@@ -1,9 +1,6 @@
 package com.paper.resume.service;
 
-import com.paper.resume.domain.Job;
-import com.paper.resume.domain.Member;
-import com.paper.resume.domain.Resume;
-import com.paper.resume.domain.SkillStack;
+import com.paper.resume.domain.*;
 import com.paper.resume.persistence.JobRepository;
 import com.paper.resume.persistence.ResumeRepository;
 import com.paper.resume.persistence.SkillStackRepository;
@@ -35,9 +32,14 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     @Override
-    public ArrayList<Resume> GetResumeList() {
+    public ArrayList<ResumeResponseDTO> GetResumeList() {
+        List<Resume> resumeList = (List<Resume>)resumeRepo.findAll();
+        ArrayList<ResumeResponseDTO> resList = new ArrayList<ResumeResponseDTO>();
+        for(Resume iter : resumeList){
 
-        return (ArrayList<Resume>)resumeRepo.findAll();
+            resList.add(new ResumeResponseDTO(iter));
+        }
+        return resList;
     }
 
     @Override

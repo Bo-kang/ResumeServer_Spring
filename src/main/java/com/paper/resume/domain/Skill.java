@@ -1,5 +1,6 @@
 package com.paper.resume.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString
+@ToString(exclude = {"skillStack"})
 @Entity
 public class Skill {
 
@@ -24,6 +25,7 @@ public class Skill {
 
     private String skillName;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "skill", fetch = FetchType.EAGER)
     private List<SkillStack> skillStack = new ArrayList<>();
 
