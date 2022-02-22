@@ -21,7 +21,6 @@ public class ResumeController {
     private final ResumeServiceImpl resumeService;
 
     @GetMapping("/resumeList")
-    @Transactional
     public ArrayList<ResumeResponseDTO> GetResumeList(){
         ArrayList<ResumeResponseDTO> resumeList = resumeService.GetResumeList();
 

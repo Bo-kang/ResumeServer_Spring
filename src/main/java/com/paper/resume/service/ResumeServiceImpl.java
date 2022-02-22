@@ -6,6 +6,7 @@ import com.paper.resume.persistence.ResumeRepository;
 import com.paper.resume.persistence.SkillStackRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,11 +33,11 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     @Override
+    @Transactional
     public ArrayList<ResumeResponseDTO> GetResumeList() {
         List<Resume> resumeList = (List<Resume>)resumeRepo.findAll();
         ArrayList<ResumeResponseDTO> resList = new ArrayList<ResumeResponseDTO>();
         for(Resume iter : resumeList){
-
             resList.add(new ResumeResponseDTO(iter));
         }
         return resList;
