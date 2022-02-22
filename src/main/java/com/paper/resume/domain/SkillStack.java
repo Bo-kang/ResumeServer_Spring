@@ -1,5 +1,6 @@
 package com.paper.resume.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,6 +18,7 @@ public class SkillStack {
     private Integer id;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "RESUME_ID")
     private Resume resume;
 

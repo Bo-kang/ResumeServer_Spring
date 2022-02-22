@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface ResumeService {
     void RegisterResume(Member member, SkillStack skillStack, Job job);
-    List<ResumeResponseDTO> GetResumeList();
-    Resume GetResume(Resume resume);
+    List<ResumeListResponseDTO> GetResumeList();
+    ResumeResponseDTO GetResume(Integer resumeId);
 }

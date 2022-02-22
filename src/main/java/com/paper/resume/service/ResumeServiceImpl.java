@@ -34,18 +34,19 @@ public class ResumeServiceImpl implements ResumeService {
 
     @Override
     @Transactional
-    public ArrayList<ResumeResponseDTO> GetResumeList() {
+    public ArrayList<ResumeListResponseDTO> GetResumeList() {
         List<Resume> resumeList = (List<Resume>)resumeRepo.findAll();
-        ArrayList<ResumeResponseDTO> resList = new ArrayList<ResumeResponseDTO>();
+        ArrayList<ResumeListResponseDTO> resList = new ArrayList<ResumeListResponseDTO>();
         for(Resume iter : resumeList){
-            resList.add(new ResumeResponseDTO(iter));
+            resList.add(new ResumeListResponseDTO(iter));
         }
         return resList;
     }
 
     @Override
-    public Resume GetResume(Resume resume) {
+    @Transactional
+    public ResumeResponseDTO GetResume(Integer resumeId) {
 
-        return resumeRepo.findById(resume.getId()).get();
+        return new ResumeResponseDTO(resumeRepo.findById(resumeId).get());
     }
 }

@@ -11,9 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 @SpringBootTest
 public class ResumeServiceTest {
@@ -38,7 +36,7 @@ public class ResumeServiceTest {
         Job job = new Job();
         SkillStack skillStack = new SkillStack();
 
-        member.setId("resumeTest3");
+        member.setId("resumeTest4");
         member.setEmail("resumeTest1@resumeTest");
         member.setPassword("resumeTest");
         member.setRole("test");
@@ -58,9 +56,9 @@ public class ResumeServiceTest {
     @Test
     @Transactional
     public void GetResumeListTest1(){
-        ArrayList<ResumeResponseDTO> resList = resumeService.GetResumeList();
+        ArrayList<ResumeListResponseDTO> resList = resumeService.GetResumeList();
 
-        for(ResumeResponseDTO iter : resList){
+        for(ResumeListResponseDTO iter : resList){
             System.out.println(iter.toString());
             System.out.println(iter.getSkillMap().toString());
         }

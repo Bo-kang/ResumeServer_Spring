@@ -1,6 +1,7 @@
 package com.paper.resume.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -22,9 +23,11 @@ public class Occupation {
     private Occupation parentOccupation;
 
     @OneToMany(mappedBy = "parentOccupation", fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Occupation> occupationList = new ArrayList<>();
 
     @OneToMany(mappedBy = "occupation")
+    @JsonIgnore
     private List<Job> job = new ArrayList<>();
 
     @Column(unique = true)
