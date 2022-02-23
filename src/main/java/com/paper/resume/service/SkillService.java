@@ -1,11 +1,14 @@
 package com.paper.resume.service;
 
 import com.paper.resume.domain.Skill;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 public interface SkillService {
-    Skill GetSkill(Skill skill);
-    List<Skill> GetSkillList(Skill skill);
+
+    public Skill getSkill(Skill skill);
+    public List<Skill> getSkillList(Skill skill);
+    public void insertSkill(Skill skill);
+    public void insertSkillList(List<Skill> skillList);
+
 }

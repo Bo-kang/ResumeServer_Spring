@@ -5,7 +5,6 @@ import com.paper.resume.persistence.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,14 +17,29 @@ public class SkillServiceImpl implements SkillService{
         this.skillRepo = skillRepo;
     }
 
-
     @Override
-    public Skill GetSkill(Skill skill) {
+    public Skill getSkill(Skill skill) {
         return skillRepo.findBySkillName(skill.getSkillName());
     }
 
     @Override
-    public ArrayList<Skill> GetSkillList(Skill skill) {
-        return skillRepo.findBySkillNameContains(skill.getSkillName());
+    public List<Skill> getSkillList(Skill skill) {
+        if(skill.getSkillName() == null)
+            return (List<Skill>) skillRepo.findAll();
+        else
+            return skillRepo.findBySkillNameContaining(skill.getSkillName());
+    }
+
+    @Override
+    public void insertSkill(Skill skill) {
+        if(skill.getSkillName() == null)
+            System.out.println("Need Skill Name");
+        else
+            skillRepo.save(skill);
+    }
+
+    @Override
+    public void insertSkillList(List<Skill> skillList) {
+        skillRepo.saveAll(skillList);
     }
 }

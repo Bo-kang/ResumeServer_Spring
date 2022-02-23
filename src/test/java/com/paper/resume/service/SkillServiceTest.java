@@ -22,7 +22,7 @@ public class SkillServiceTest {
     @Test
     public void GetSkillListTest1(){
         Skill skill = new Skill();
-        ArrayList<Skill> skillList = skillService.GetSkillList(skill);
+        List<Skill> skillList = skillService.getSkillList(skill);
         for(Skill iter : skillList){
             System.out.println(iter.toString());
         }
@@ -32,7 +32,7 @@ public class SkillServiceTest {
     public void GetSkillListTest2(){
         Skill skill = new Skill();
         skill.setSkillName("+");
-        ArrayList<Skill> skillList = skillService.GetSkillList(skill);
+        List<Skill> skillList = skillService.getSkillList(skill);
         for(Skill iter : skillList){
             System.out.println(iter.toString());
         }

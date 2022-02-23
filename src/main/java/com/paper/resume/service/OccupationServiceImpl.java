@@ -18,12 +18,12 @@ public class OccupationServiceImpl implements OccupationService {
     }
 
     @Override
-    public Occupation GetOccupation(Occupation occupation) {
+    public Occupation getOccupation(Occupation occupation) {
         return occupationRepo.findById(occupation.getId()).get();
     }
 
     @Override
-    public List<Occupation> GetOccupationList() {
+    public List<Occupation> getOccupationList() {
         return (List<Occupation>)occupationRepo.findAll();
     }
 

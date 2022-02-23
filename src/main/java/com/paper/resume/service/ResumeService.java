@@ -5,7 +5,7 @@ import com.paper.resume.domain.*;
 import java.util.List;
 
 public interface ResumeService {
-    void RegisterResume(Member member, SkillStack skillStack, Job job);
-    List<ResumeListResponseDTO> GetResumeList();
-    ResumeResponseDTO GetResume(Integer resumeId);
+    void registerResume(Member member, SkillStack skillStack, Job job);
+    List<ResumeListResponseDTO> getResumeList();
+    ResumeResponseDTO getResume(Integer resumeId);
 }

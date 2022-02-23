@@ -50,13 +50,13 @@ public class ResumeServiceTest {
         skillStack.setUsedYear(3);
         skillStack.setSkill(skillRepo.findBySkillName("C++"));
 
-        resumeService.RegisterResume(member, skillStack,job);
+        resumeService.registerResume(member, skillStack,job);
     }
 
     @Test
     @Transactional
     public void GetResumeListTest1(){
-        ArrayList<ResumeListResponseDTO> resList = resumeService.GetResumeList();
+        ArrayList<ResumeListResponseDTO> resList = resumeService.getResumeList();
 
         for(ResumeListResponseDTO iter : resList){
             System.out.println(iter.toString());

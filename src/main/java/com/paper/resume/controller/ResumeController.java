@@ -6,7 +6,6 @@ import com.paper.resume.domain.ResumeResponseDTO;
 import com.paper.resume.service.ResumeServiceImpl;
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,16 +18,17 @@ public class ResumeController {
     private final ResumeServiceImpl resumeService;
 
     @GetMapping("/resumeList")
-    public ArrayList<ResumeListResponseDTO> GetResumeList(){
-        ArrayList<ResumeListResponseDTO> resumeList = resumeService.GetResumeList();
+    public ArrayList<ResumeListResponseDTO> getResumeList(){
+        ArrayList<ResumeListResponseDTO> resumeList = resumeService.getResumeList();
 
         return resumeList;
     }
 
     @GetMapping("/resume")
-    public ResumeResponseDTO GetResume(@RequestParam Integer resumeId){
-        ResumeResponseDTO res = resumeService.GetResume(resumeId);
+    public ResumeResponseDTO getResume(@RequestParam Integer resumeId){
+        ResumeResponseDTO res = resumeService.getResume(resumeId);
         System.out.println(res.toString());
         return res;
     }
+
 }

@@ -20,7 +20,7 @@ public class ResumeServiceImpl implements ResumeService {
     private final JobRepository jobRepo;
 
     @Override
-    public void RegisterResume(Member member, SkillStack skillStack, Job job) {
+    public void registerResume(Member member, SkillStack skillStack, Job job) {
         Resume resume = new Resume();
         resume.setMember(member);
         Resume savedResume = resumeRepo.save(resume);
@@ -34,7 +34,7 @@ public class ResumeServiceImpl implements ResumeService {
 
     @Override
     @Transactional
-    public ArrayList<ResumeListResponseDTO> GetResumeList() {
+    public ArrayList<ResumeListResponseDTO> getResumeList() {
         List<Resume> resumeList = (List<Resume>)resumeRepo.findAll();
         ArrayList<ResumeListResponseDTO> resList = new ArrayList<ResumeListResponseDTO>();
         for(Resume iter : resumeList){
@@ -45,7 +45,7 @@ public class ResumeServiceImpl implements ResumeService {
 
     @Override
     @Transactional
-    public ResumeResponseDTO GetResume(Integer resumeId) {
+    public ResumeResponseDTO getResume(Integer resumeId) {
 
         return new ResumeResponseDTO(resumeRepo.findById(resumeId).get());
     }
